@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="pwr.edu.pl.flickr.flickrpublicfeed.ui.publicfeed.viewmodel.PublicFeedItemViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/photo_photo_iv"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_photo_on_list_height"
+            android:contentDescription="@string/cd_photo_from_feed"
+            android:scaleType="fitCenter"
+            app:imageBind="@{itemViewModel.publicFeedItem.imageUrl}"
+            app:layout_constraintBottom_toTopOf="@+id/photo_title_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_empty_image" />
+
+        <TextView
+            android:id="@+id/photo_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:lines="1"
+            android:text="@{itemViewModel.publicFeedItem.title}"
+            android:textSize="@dimen/text_photo_title_font_size"
+            app:layout_constraintBottom_toTopOf="@+id/photo_tag_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/photo_tag_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:contentDescription="@string/cd_tag_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/photo_tag_tv"
+            app:layout_constraintEnd_toStartOf="@+id/photo_tag_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/photo_tag_tv"
+            app:srcCompat="@drawable/ic_tag" />
+
+        <TextView
+            android:id="@+id/photo_tag_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:lines="1"
+            android:textSize="@dimen/text_small_font_size"
+            app:tBind="@{itemViewModel.publicFeedItem.tags}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/photo_date_iv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/photo_tag_iv" />
+
+        <ImageView
+            android:id="@+id/photo_date_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:contentDescription="@string/cd_date_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/photo_date_tv"
+            app:layout_constraintEnd_toStartOf="@+id/photo_date_tv"
+            app:layout_constraintStart_toEndOf="@+id/photo_tag_tv"
+            app:layout_constraintTop_toTopOf="@+id/photo_date_tv"
+            app:srcCompat="@drawable/ic_date" />
+
+        <TextView
+            android:id="@+id/photo_date_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:lines="1"
+            android:textSize="@dimen/text_small_font_size"
+            app:publishedDateBind="@{itemViewModel.publicFeedItem.publishedDate}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/photo_date_iv" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

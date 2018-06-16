@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //margins
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_std">12dp</dimen>
+
+    //fonts
+    <dimen name="text_photo_title_font_size">18sp</dimen>
+    <dimen name="text_small_font_size">12sp</dimen>
+
+    //size
+    <dimen name="size_photo_on_list_height">200dp</dimen>
+</resources>
